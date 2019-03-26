@@ -8,17 +8,22 @@ import ocm
 #sys.path.append("C:\\Users\\jihun\\eclipse-workspace\\OCM\\OCM_Analysis\\alma_master\\alma_master\\alma")
 plt.close("all")
 
+num_subject = 4;
+rep_list = [8196, 8196, 8196, 8192, 8192, 8192, 6932, 6932, 6932, 3690, 3690, 3690]
+
 ocm_list = [] #run1
 ocm_list = [] #run2
 ocm_list = [] #run3
 ocm_list = [] #test1
-#ocm_list.append("C:\\OCM_Data\\20181102_Panc_OCM\\Subject_20180928\\run1.bin")
-#ocm_list.append("C:\\OCM_Data\\20181102_Panc_OCM\\Subject_01_20181102\\runb1.bin")
-ocm_list.append("C:\\OCM_Data\\20181102_Panc_OCM\\Subject_02_20181102\\run1.bin")
+
+ocm_list.append("C:\\OCM_Data\\Panc_OCM\\Subject_01_20180928\\run1.bin")
+#ocm_list.append("C:\\OCM_Data\\Panc_OCM\\Subject_01_20181102\\runb2.bin")
+#ocm_list.append("C:\\OCM_Data\\Panc_OCM\\Subject_02_20181102\\run2.bin")
+#ocm_list.append("C:\\OCM_Data\\Panc_OCM\\Subject_02_20181220\\run2_ocm.bin")
 
 
 fidx = 0
-ocm_filename = ocm_list[fidx]
+ocm_filename = ocm_list[0]
 a = ocm_exp.ocm_exp(ocm_filename)
 
 sec_per_trace = (a.ts2_us[0,1] - a.ts2_us[0,0]) #ts2_us (float array): NI timestamp
@@ -27,6 +32,7 @@ sec_per_trace = (a.ts2_us[0,1] - a.ts2_us[0,0]) #ts2_us (float array): NI timest
 big_t = np.multiply(range(0,a.cnt),sec_per_trace) #cnt:num of full traces in the file
 #big_t = 1*16621. max is 41.12
 
+'''
 #plot the data
 fig, ax = plt.subplots()
 plt.title('Full experiment')
@@ -35,6 +41,60 @@ plt.ylabel('micro-seconds')
 ax.imshow(a.ocm, aspect="auto")
 fig.show()
 print("Disp OCM")
+'''
+
+
+#Show trace as a function of depth
+fig, ax = plt.subplots()
+ax.plot(range(250,900),a.ocm[250:900,600+rep_list[7]*0])
+ax.plot(range(250,900),a.ocm[250:900,600+rep_list[7]*1])
+ax.plot(range(250,900),a.ocm[250:900,600+rep_list[7]*2])
+ax.plot(range(250,900),a.ocm[250:900,600+rep_list[7]*3])
+ax.plot(range(250,900),a.ocm[250:900,600+rep_list[7]*4])
+fig.show()
+
+fig, ax = plt.subplots()
+ax.plot(range(250,900),a.ocm[250:900,600*1+rep_list[7]*5])
+ax.plot(range(250,900),a.ocm[250:900,600*1+rep_list[7]*6])
+ax.plot(range(250,900),a.ocm[250:900,600*1+rep_list[7]*7])
+ax.plot(range(250,900),a.ocm[250:900,600*1+rep_list[7]*8])
+ax.plot(range(250,900),a.ocm[250:900,600*1+rep_list[7]*9])
+
+fig.show()
+fig, ax = plt.subplots()
+ax.plot(range(250,900),a.ocm[250:900,600*2+rep_list[7]*10])
+ax.plot(range(250,900),a.ocm[250:900,600*2+rep_list[7]*11])
+ax.plot(range(250,900),a.ocm[250:900,600*2+rep_list[7]*12])
+ax.plot(range(250,900),a.ocm[250:900,600*2+rep_list[7]*13])
+ax.plot(range(250,900),a.ocm[250:900,600*2+rep_list[7]*14])
+fig.show()
+
+#S2 run2
+fig, ax = plt.subplots()
+ax.plot(range(250,900),a.ocm[250:900,600+rep_list[11]*0])
+ax.plot(range(250,900),a.ocm[250:900,600+rep_list[11]*1])
+ax.plot(range(250,900),a.ocm[250:900,600+rep_list[11]*2])
+ax.plot(range(250,900),a.ocm[250:900,600+rep_list[11]*3])
+ax.plot(range(250,900),a.ocm[250:900,600+rep_list[11]*4])
+fig.show()
+
+fig, ax = plt.subplots()
+ax.plot(range(250,900),a.ocm[250:900,600*1+rep_list[11]*5])
+ax.plot(range(250,900),a.ocm[250:900,600*1+rep_list[11]*6])
+ax.plot(range(250,900),a.ocm[250:900,600*1+rep_list[11]*7])
+ax.plot(range(250,900),a.ocm[250:900,600*1+rep_list[11]*8])
+ax.plot(range(250,900),a.ocm[250:900,600*1+rep_list[11]*9])
+
+fig.show()
+fig, ax = plt.subplots()
+ax.plot(range(250,900),a.ocm[250:900,600*2+rep_list[11]*10])
+ax.plot(range(250,900),a.ocm[250:900,600*2+rep_list[11]*11])
+ax.plot(range(250,900),a.ocm[250:900,600*2+rep_list[11]*12])
+ax.plot(range(250,900),a.ocm[250:900,600*2+rep_list[11]*13])
+ax.plot(range(250,900),a.ocm[250:900,600*2+rep_list[11]*14])
+fig.show()
+
+
 
 # cnt (int): number of traces in the file
 print(a.cnt) #a.cnt = 166211 (x axis)
@@ -75,7 +135,8 @@ plt.xlim(0.0, 50) #plt.xlim(-0.00001, 0.0005)
 plt.ylim(0, 100)
 print("End of code")
 
-'''
+
+
 #Apply cross correlation before low pass filter
 xcor = np.zeros([1500,a.cnt])
 xcor1 = np.zeros([xcor.size])
@@ -92,7 +153,7 @@ for p in range(0,a.cnt):
     xcor2 = xcor2.astype(float)
     xcor[:,p] = np.correlate(xcor1,xcor2,'same')
 
-'''
+
 
 
 #try to estimate breathing trace from OCM data
