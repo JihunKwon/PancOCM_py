@@ -1,3 +1,4 @@
+
 import struct
 import numpy as np
 import matplotlib.pyplot as plt
@@ -23,7 +24,7 @@ def load_ocm(filename):
         if ((cnt>1 and d.size<samples_per_trace) or t1.size<1):
             break
         cnt = cnt+1
-        
+
     #rewind and read the whole file into ram
     ocm = np.zeros((samples_per_trace, cnt), dtype=np.short)
     ts1_us = np.zeros((1,cnt), dtype=np.float64)
@@ -36,5 +37,4 @@ def load_ocm(filename):
 
     f.close()
     return ocm
-
 

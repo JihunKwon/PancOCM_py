@@ -16,7 +16,7 @@ ocm_list = [] #run2
 ocm_list = [] #run3
 ocm_list = [] #test1
 
-ocm_list.append("C:\\OCM_Data\\Panc_OCM\\Subject_01_20180928\\run1.bin")
+ocm_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_01_20180928/run1.bin")
 #ocm_list.append("C:\\OCM_Data\\Panc_OCM\\Subject_01_20181102\\runb2.bin")
 #ocm_list.append("C:\\OCM_Data\\Panc_OCM\\Subject_02_20181102\\run2.bin")
 #ocm_list.append("C:\\OCM_Data\\Panc_OCM\\Subject_02_20181220\\run2_ocm.bin")
@@ -32,7 +32,7 @@ sec_per_trace = (a.ts2_us[0,1] - a.ts2_us[0,0]) #ts2_us (float array): NI timest
 big_t = np.multiply(range(0,a.cnt),sec_per_trace) #cnt:num of full traces in the file
 #big_t = 1*16621. max is 41.12
 
-'''
+
 #plot the data
 fig, ax = plt.subplots()
 plt.title('Full experiment')
@@ -41,7 +41,7 @@ plt.ylabel('micro-seconds')
 ax.imshow(a.ocm, aspect="auto")
 fig.show()
 print("Disp OCM")
-'''
+
 
 
 #Show trace as a function of depth

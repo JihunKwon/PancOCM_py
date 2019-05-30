@@ -40,15 +40,15 @@ out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_03_20190320/run3.npy")
 
 #these are where the runs end in each OCM file
 #rep_list = [8769, 8769, 8769, 8767, 8767, 8767, 7506, 7506, 7506]
-num_subject = 1;
-#rep_list = [8196, 8196, 8196, 8192, 8192, 8192, 6932, 6932, 6932, 3690, 3690, 3690, 3401, 3401, 3401, 3690, 3690, 3690]# 3124 3401 3200
-rep_list = [8196, 8196, 8196]# 3124 3401 3200
+num_subject = 6;
+rep_list = [8196, 8196, 8196, 8192, 8192, 8192, 6932, 6932, 6932, 3690, 3690, 3690, 3401, 3401, 3401, 3690, 3690, 3690]# 3124 3401 3200
+#rep_list = [8196, 8196, 8196]# 3124 3401 3200
 
 #these store data for each transducer, 5 breath holds, 15 runs
-t0 = np.zeros([500,5,np.size(rep_list)])
-t1 = np.zeros([500,5,np.size(rep_list)])
-t2 = np.zeros([500,5,np.size(rep_list)])
-t3 = np.zeros([500,5,np.size(rep_list)])
+t0 = np.zeros([20,5,np.size(rep_list)])
+t1 = np.zeros([20,5,np.size(rep_list)])
+t2 = np.zeros([20,5,np.size(rep_list)])
+t3 = np.zeros([20,5,np.size(rep_list)])
 
 #stores mean squared difference
 d0 = np.zeros([5,np.size(rep_list)])
@@ -61,7 +61,7 @@ for fidx in range(0,np.size(rep_list)):
     ocm = np.load(in_filename)
     
     #crop data
-    ocm = ocm[300:800,:] #Original code.
+    ocm = ocm[300:320,:] #Original code.
 
     #s=# of samples per trace
     #t=# of total traces
@@ -237,6 +237,7 @@ for sub in range(0,num_subject):
     rm1 = np.mean(t1[:,:,sub*3],1)
     rm2 = np.mean(t2[:,:,sub*3],1)
     rm3 = np.mean(t3[:,:,sub*3],1)
+
     #loop through runs (before water, after water, 10min after water)
     for run in range(0,3):
         fidx = run + sub*3 #file number
