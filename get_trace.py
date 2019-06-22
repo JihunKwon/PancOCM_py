@@ -16,7 +16,7 @@ Note: file name run1, run2 and run3 means: before, shortly after and 10 minutes 
 '''
 
 # Jihun Local
-
+'''
 # s1r1
 out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_01_20180928/run1.npy") #Before water
 out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_01_20180928/run2.npy") #After water
@@ -30,35 +30,42 @@ out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_01_20181102/run1.npy")
 out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_01_20181102/run2.npy")
 out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_01_20181102/run3.npy")
 rep_list = [8192, 8192, 8192]
-#rep_list = [1000, 1000, 1000]
+#rep_list = [819, 819, 819]
+'''
 # s2r1
 out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_02_20181102/run1.npy")
 out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_02_20181102/run2.npy")
 out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_02_20181102/run3.npy")
-rep_list = [6932, 6932, 6932]
+#rep_list = [6932, 6932, 6932]
+rep_list = [693, 693, 693]
+
 # s2r2
 out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_02_20181220/run1.npy")
 out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_02_20181220/run2.npy")
 out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_02_20181220/run3.npy")
-rep_list = [3690, 3690, 3690]
+#rep_list = [3690, 3690, 3690]
+rep_list = [369, 369, 369]
+
 # s3r1
 out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_03_20190228/run1.npy")
 out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_03_20190228/run2.npy")
 out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_03_20190228/run3.npy")
-rep_list = [3401, 3401, 3401]
+#rep_list = [3401, 3401, 3401]
+rep_list = [340, 340, 340]
 
 # s3r2
 out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_03_20190320/run1.npy")
 out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_03_20190320/run2.npy")
 out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_03_20190320/run3.npy")
-rep_list = [3690, 3690, 3690]
+#rep_list = [3690, 3690, 3690]
+rep_list = [369, 369, 369]
 '''
 
 
 # these are where the runs end in each OCM file
 num_subject = 1  # This number has to be the number of total run (number of subjects * number of runs)
 init = 300
-depth = 500
+depth = 350
 print(np.size(rep_list))
 print(rep_list[0]*1)
 
@@ -183,3 +190,6 @@ for fidx in range(0, np.size(rep_list)):
 
 with open('ocm012.pkl', 'wb') as f:
     pickle.dump([ocm0_all, ocm1_all, ocm2_all], f)
+
+with open('ocm012_undr5.pkl', 'wb') as f:
+    pickle.dump([ocm0_all_udr, ocm1_all_udr, ocm2_all_udr], f)
