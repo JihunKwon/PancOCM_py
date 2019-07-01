@@ -33,46 +33,75 @@ out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_01_20181102/run2.npy")
 out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_01_20181102/run3.npy")
 rep_list = [8192, 8192, 8192]
 #rep_list = [819, 819, 819]
+<<<<<<< HEAD
 
+=======
+'''
+>>>>>>> 5af2cfcc43d8fa4d24279a97b7facde5c291307b
 # s2r1
 Sub_run = 's2r1'
 out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_02_20181102/run1.npy")
 out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_02_20181102/run2.npy")
 out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_02_20181102/run3.npy")
+<<<<<<< HEAD
 rep_list = [6932, 6932, 6932]
 #rep_list = [693, 693, 693]
+=======
+#rep_list = [6932, 6932, 6932]
+rep_list = [693, 693, 693]
+>>>>>>> 5af2cfcc43d8fa4d24279a97b7facde5c291307b
 
 # s2r2
 Sub_run = 's2r2'
 out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_02_20181220/run1.npy")
 out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_02_20181220/run2.npy")
 out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_02_20181220/run3.npy")
+<<<<<<< HEAD
 rep_list = [3690, 3690, 3690]
 #rep_list = [369, 369, 369]
+=======
+#rep_list = [3690, 3690, 3690]
+rep_list = [369, 369, 369]
+>>>>>>> 5af2cfcc43d8fa4d24279a97b7facde5c291307b
 
 # s3r1
 Sub_run = 's3r1'
 out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_03_20190228/run1.npy")
 out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_03_20190228/run2.npy")
 out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_03_20190228/run3.npy")
+<<<<<<< HEAD
 rep_list = [3401, 3401, 3401]
 #rep_list = [340, 340, 340]
 '''
+=======
+#rep_list = [3401, 3401, 3401]
+rep_list = [340, 340, 340]
+
+>>>>>>> 5af2cfcc43d8fa4d24279a97b7facde5c291307b
 # s3r2
 Sub_run = 's3r2'
 out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_03_20190320/run1.npy")
 out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_03_20190320/run2.npy")
 out_list.append("/Users/Kwon/OCM_Data/Panc_OCM/Subject_03_20190320/run3.npy")
+<<<<<<< HEAD
 rep_list = [3690, 3690, 3690]
 #rep_list = [369, 369, 369]
 
+=======
+#rep_list = [3690, 3690, 3690]
+rep_list = [369, 369, 369]
+'''
+>>>>>>> 5af2cfcc43d8fa4d24279a97b7facde5c291307b
 
 
 # these are where the runs end in each OCM file
 num_subject = 1  # This number has to be the number of total run (number of subjects * number of runs)
 init = 300
 depth = 350
+<<<<<<< HEAD
 s_rate = 4  # Under sampling rate
+=======
+>>>>>>> 5af2cfcc43d8fa4d24279a97b7facde5c291307b
 print(np.size(rep_list))
 print(rep_list[0] * 1)
 
@@ -239,8 +268,13 @@ f_name = 'Raw_det_ocm012_' + Sub_run + '.pkl'
 with open(f_name, 'wb') as f:
     pickle.dump([ocm0_all, ocm1_all, ocm2_all], f)
 
+<<<<<<< HEAD
 #fname = 'Raw_det_ocm012_undr' + str(s_rate) + '.pkl'
 #with open(fname, 'wb') as f:
 #    pickle.dump([ocm0_all_udr, ocm1_all_udr, ocm2_all_udr], f)
 
 print(time.time() - start)
+=======
+with open('ocm012_undr5.pkl', 'wb') as f:
+    pickle.dump([ocm0_all_udr, ocm1_all_udr, ocm2_all_udr], f)
+>>>>>>> 5af2cfcc43d8fa4d24279a97b7facde5c291307b
