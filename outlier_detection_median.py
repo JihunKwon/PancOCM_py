@@ -189,7 +189,7 @@ for fidx in range(0,np.size(rep_list)):
         plt.subplots_adjust(hspace=0)
         ax1 = plt.subplot(211)
         ax2 = plt.subplot(212, sharex=ax1)
-        target=1
+        target=3 # target=1 is very good, but chose the data from the different bh may be better
 
         ax1.plot(depth_my, base1[:, 0], 'k', linewidth=1, linestyle='solid', label="Baseline ($\it{M_{B}}$)")
         ax1.plot(depth_my, mag_norm_medi1[:, target], 'b', linewidth=1, linestyle='dashed', label="Test set ($\it{M_{n}}$)")
@@ -210,7 +210,7 @@ for fidx in range(0,np.size(rep_list)):
 
         xticklabels = ax1.get_xticklabels()
         plt.setp(xticklabels, visible=False)
-        plt.subplots_adjust(left=0.14, right=0.98, top=0.9)
+        plt.subplots_adjust(left=0.14, right=0.98, top=0.92)
         #plt.show()
         f_name = 'Median1_' + str(fidx//2) + '_state1.png'
         plt.savefig(f_name)
@@ -231,7 +231,7 @@ for fidx in range(0,np.size(rep_list)):
 
         ax1.plot(depth_my, base1[:, 0], 'k', linewidth=1, linestyle='solid', label="Baseline ($\it{M_{B}}$)")
         ax1.plot(depth_my, mag_norm_medi1[:, 0], 'b', linewidth=1, linestyle='dashed', label="Test set ($\it{M_{n}}$)")
-        ax1.set_title("Model Generation, State 1")
+        ax1.set_title("Model Generation, State 2")
         ax1.set_ylabel("Magnitude (a.u.)")
         ax1.legend(loc='upper right')
         ax1.set_ylim(-700, 20000)
@@ -248,7 +248,7 @@ for fidx in range(0,np.size(rep_list)):
 
         xticklabels = ax1.get_xticklabels()
         plt.setp(xticklabels, visible=False)
-        plt.subplots_adjust(left=0.14, right=0.98, top=0.9)
+        plt.subplots_adjust(left=0.14, right=0.98, top=0.92)
         #plt.show()
         f_name = 'Median1_' + str(fidx//2) + '_state2.png'
         plt.savefig(f_name)
