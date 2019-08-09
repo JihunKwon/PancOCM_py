@@ -210,7 +210,7 @@ for fidx in range(0,np.size(rep_list)):
 
         xticklabels = ax1.get_xticklabels()
         plt.setp(xticklabels, visible=False)
-        plt.subplots_adjust(left=0.14, right=0.98, top=0.98)
+        plt.subplots_adjust(left=0.14, right=0.98, top=0.9)
         #plt.show()
         f_name = 'Median1_' + str(fidx//2) + '_state1.png'
         plt.savefig(f_name)
@@ -248,7 +248,7 @@ for fidx in range(0,np.size(rep_list)):
 
         xticklabels = ax1.get_xticklabels()
         plt.setp(xticklabels, visible=False)
-        plt.subplots_adjust(left=0.14, right=0.98, top=0.98)
+        plt.subplots_adjust(left=0.14, right=0.98, top=0.9)
         #plt.show()
         f_name = 'Median1_' + str(fidx//2) + '_state2.png'
         plt.savefig(f_name)
